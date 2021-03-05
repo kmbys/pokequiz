@@ -10,15 +10,10 @@
 	<p>{{ message }}</p>
 	<p>問題：</p>
 	<p>このポケモンは？<br>{{ question }}</p>
-	<div>
 	{% for option in options %}
-		<label id="option_label">
-			<input type="radio" name="option">{{ option }}
-		</label>
+		<input type="radio" name="option" id={{ option }} class="wrong_option">
+		<label id="option_label" for={{ option }}>{{ option }}</label>
 	{% endfor %}
-	</div>
-	<input type="checkbox" id="label1">
-	<label for="label1">クリック</label>
 	<div id="result_wrong">
 		<p>結果：</p>
 		<p>残念！正解は<strong> {{ answer_name }} </strong>でした。</p>

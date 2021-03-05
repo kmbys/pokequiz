@@ -10,7 +10,7 @@
     transition: 0.8s;
 }
 
-input:checked ~ #result_wrong {
+.wrong_option:checked ~ #result_wrong {
     padding: 10px 0;
     height: auto;
     opacity: 1;
