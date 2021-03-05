@@ -12,7 +12,7 @@
 	<p>このポケモンは？<br>{{ question }}</p>
 	{% for option in options %}
 		<input type="radio" name="option" id={{ option }} class="wrong_option">
-		<label id="option_label" for={{ option }}>{{ option }}</label>
+		<label class="option_label" for={{ option }}>{{ option }}</label>
 	{% endfor %}
 	<div id="result_wrong">
 		<p>結果：</p>

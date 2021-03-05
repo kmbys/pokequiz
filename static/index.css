@@ -1,5 +1,17 @@
-#option_label {
-    display: block;
+.wrong_option, .correct_option {
+    display: none; 
+}
+
+.option_label {
+/*    display: block; */
+    padding: 15px;
+    font-weight: bold;
+    border: solid 2px black;
+    cursor: pointer;
+}
+
+input:checked + .option_label {
+    background-color: #FFC778;
 }
 
 #result_wrong {
