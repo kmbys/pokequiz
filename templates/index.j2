@@ -4,17 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>pokequiz</title>
+<link rel="stylesheet" href="/static/index.css">
 </head>
 <body>
 	<p>{{ message }}</p>
 	<p>問題：</p>
 	<p>このポケモンは？<br>{{ question }}</p>
-	<ul>
-	{% for option in options %}
-		<li>{{ option }}</li>
-	{% endfor %}
-	</ul>
 	<div>
+	{% for option in options %}
+		<label class="option_label">
+			<input type="radio" name="option">{{ option }}
+		</label>
+	{% endfor %}
+	</div>
+	<div class="result_wrong">
 		<p>結果：</p>
 		<p>残念！正解は<strong> {{ answer_name }} </strong>でした。</p>
 		<img src={{ answer_image }}>
