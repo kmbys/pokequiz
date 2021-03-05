@@ -1,3 +1,17 @@
-.option_label {
+#option_label {
     display: block;
+}
+
+#result_wrong {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.8s;
+}
+
+input:checked ~ #result_wrong {
+    padding: 10px 0;
+    height: auto;
+    opacity: 1;
 }
