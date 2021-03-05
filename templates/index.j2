@@ -9,14 +9,13 @@
 	<p>{{ message }}</p>
 	<p>問題：<br>このポケモンは？<br>うまれたときから　せなかに　しょくぶつの　タネが　あって　すこしずつ　おおきく　そだつ。　（『ポケモン ソード』より）</p>
 	<ul>
-		<li>フシギダネ</li>
-		<li>ゼニガメ</li>
-		<li>ヒトカゲ</li>
-		<li>ピカチュウ</li>
+	{% for option in options %}
+		<li>{{ option }}</li>
+	{% endfor %}
 	</ul>
 	<div>
-		<p>結果：残念！正解はフシギダネでした。</p>
-		<img src="https://zukan.pokemon.co.jp/zukan-api/up/images/index/7b705082db2e24dd4ba25166dac84e0a.png">
+		<p>結果<br>残念！正解は<strong> {{ answer_name }} </strong>でした。</p>
+		<img src={{ answer_image }}>
 		<button>次の問題へ</button>
 	</div>
 </body>
