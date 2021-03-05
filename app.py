@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template
+import random
 
 app = Flask(__name__)
 
@@ -20,6 +21,7 @@ class Quiz:
         options = [Option(pokemons[0], True)]
         for i in range(1, len(pokemons)):
             options.append(Option(pokemons[i], False))
+        random.shuffle(options)
         self.options = options
         self.answer_name = pokemons[0].name
         self.answer_image = pokemons[0].image_uri
@@ -34,8 +36,7 @@ def index():
         ),
         Pokemon("ゼニガメ", "図鑑1", "https://example.com/image1.png"),
         Pokemon("ヒトカゲ", "図鑑2", "https://example.com/image2.png"),
-        Pokemon("ピカチュウ", "図鑑3", "https://example.com/image3.png"),
-        Pokemon("コラッタ", "図鑑4", "https://example.com/image3.png")
+        Pokemon("ピカチュウ", "図鑑3", "https://example.com/image3.png")
     ])
     return render_template(
         'index.j2',
