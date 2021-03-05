@@ -9,21 +9,21 @@
 <body>
 	<p>{{ message }}</p>
 	<p>問題：</p>
-	<p>このポケモンは？<br>{{ question }}</p>
-	{% for option in options %}
+	<p>このポケモンは？<br>{{ quiz.question }}</p>
+	{% for option in quiz.options %}
 		<input type="radio" name="option" id={{ option.name }} class={{ option.class_name }}>
 		<label class="option_label" for={{ option.name }}>{{ option.name }}</label>
 	{% endfor %}
 	<div id="result_correct">
 		<p>結果：</p>
 		<p>正解！</p>
-		<img src={{ answer_image }}>
+		<img src={{ quiz.answer_image }}>
 		<button>次の問題へ</button>
 	</div>
 	<div id="result_wrong">
 		<p>結果：</p>
-		<p>残念！正解は<strong> {{ answer_name }} </strong>でした。</p>
-		<img src={{ answer_image }}>
+		<p>残念！正解は<strong> {{ quiz.answer_name }} </strong>でした。</p>
+		<img src={{ quiz.answer_image }}>
 		<button>最初に戻る</button>
 	</div>
 </body>
