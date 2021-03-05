@@ -17,12 +17,10 @@ class Option:
 class Quiz:
     def __init__(self, pokemons):        
         self.question = pokemons[0].description
-        self.options = [
-            Option(pokemons[0], True),
-            Option(pokemons[1], False),
-            Option(pokemons[2], False),
-            Option(pokemons[3], False)
-        ]
+        options = [Option(pokemons[0], True)]
+        for i in range(1, len(pokemons)):
+            options.append(Option(pokemons[i], False))
+        self.options = options
         self.answer_name = pokemons[0].name
         self.answer_image = pokemons[0].image_uri
 
@@ -36,7 +34,8 @@ def index():
         ),
         Pokemon("ゼニガメ", "図鑑1", "https://example.com/image1.png"),
         Pokemon("ヒトカゲ", "図鑑2", "https://example.com/image2.png"),
-        Pokemon("ピカチュウ", "図鑑3", "https://example.com/image3.png")
+        Pokemon("ピカチュウ", "図鑑3", "https://example.com/image3.png"),
+        Pokemon("コラッタ", "図鑑4", "https://example.com/image3.png")
     ])
     return render_template(
         'index.j2',
