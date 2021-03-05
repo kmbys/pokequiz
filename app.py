@@ -9,14 +9,19 @@ class Pokemon:
         self.description = description
         self.image_uri = image_uri
 
+class Option:
+    def __init__(self, pokemon, is_correct):
+        self.name = pokemon.name
+        self.class_name = "correct_option" if is_correct else "wrong_option"
+
 class Quiz:
     def __init__(self, pokemons):        
         self.question = pokemons[0].description
         self.options = [
-            {"name": pokemons[0].name, "class_name": "correct_option"},
-            {"name": pokemons[1].name, "class_name": "wrong_option"},
-            {"name": pokemons[2].name, "class_name": "wrong_option"},
-            {"name": pokemons[3].name, "class_name": "wrong_option"}
+            Option(pokemons[0], True),
+            Option(pokemons[1], False),
+            Option(pokemons[2], False),
+            Option(pokemons[3], False)
         ]
         self.answer_name = pokemons[0].name
         self.answer_image = pokemons[0].image_uri
