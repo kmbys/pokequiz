@@ -7,14 +7,16 @@
 </head>
 <body>
 	<p>{{ message }}</p>
-	<p>問題：<br>このポケモンは？<br>うまれたときから　せなかに　しょくぶつの　タネが　あって　すこしずつ　おおきく　そだつ。　（『ポケモン ソード』より）</p>
+	<p>問題：</p>
+	<p>このポケモンは？<br>{{ question }}</p>
 	<ul>
 	{% for option in options %}
 		<li>{{ option }}</li>
 	{% endfor %}
 	</ul>
 	<div>
-		<p>結果<br>残念！正解は<strong> {{ answer_name }} </strong>でした。</p>
+		<p>結果：</p>
+		<p>残念！正解は<strong> {{ answer_name }} </strong>でした。</p>
 		<img src={{ answer_image }}>
 		<button>次の問題へ</button>
 	</div>
