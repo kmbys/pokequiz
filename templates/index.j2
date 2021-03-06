@@ -18,14 +18,14 @@
 		<img src="{{ quiz.answer_image }}">
 		<form action="/" method="get">	
 			<input type="hidden" name="stage" value="{{ stage.next }}">
-			<input type="submit" value="つぎへすすむ">
+			<input type="submit" value="つぎへすすむ" class="submit">
 		</form>
 	</div>
 	<div id="result_wrong">
 		<p>ざんねん！せいかいは<strong> {{ quiz.answer_name }} </strong>でした。</p>
 		<img src="{{ quiz.answer_image }}">
 		<form action="/" method="get">	
-			<input type="submit" value="さいしょから">
+			<input type="submit" value="さいしょから" class="submit">
 		</form>
 	</div>
 </body>

@@ -40,3 +40,10 @@ input:checked + .option_label {
     height: auto;
     opacity: 1;
 }
+
+.submit {
+    padding: 15px;
+    font-weight: bold;
+    border: solid 2px black;
+    cursor: pointer;
+}
