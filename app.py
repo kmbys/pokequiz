@@ -46,12 +46,7 @@ def index():
     return render_template(
         'index.j2',
         message="第1問",
-        quiz=Quiz([
-            get_from_zukan("010"),
-            get_from_zukan("004"),
-            get_from_zukan("007"),
-            get_from_zukan("001")
-        ])
+        quiz=Quiz([get_from_zukan(num) for num in get_distinct_random_nums(151, 4)])
     )
 
 if __name__ == '__main__':
