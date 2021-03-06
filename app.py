@@ -38,6 +38,9 @@ def get_from_zukan(no):
     )["pokemon"]
     return Pokemon(p["name"], p["text_1"], p["image_s"])
 
+def get_distinct_random_nums(range_, size):
+    return random.sample(range(1, range_ + 1), size)
+
 @app.route('/')
 def index():
     return render_template(
