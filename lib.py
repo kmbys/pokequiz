@@ -4,6 +4,10 @@ from bs4 import BeautifulSoup
 import random
 import json
 
+class Stage:
+    def __init__(self, value):
+        self.value = 1 if value is None else value
+
 class Pokemon:
     def __init__(self, name, description, image_uri):
         self.name = name
