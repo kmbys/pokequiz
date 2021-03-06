@@ -16,13 +16,16 @@ class Option:
         self.class_name = "correct_option" if is_correct else "wrong_option"
 
 class Quiz:
-    def __init__(self, pokemons):        
-        self.question = pokemons[0].description
+    def __init__(self, range_, size):
+        pokemons = [get_from_zukan(num) for num in get_distinct_random_nums(range_, size)]
+
         options = [Option(pokemons[0], True)]
         for i in range(1, len(pokemons)):
             options.append(Option(pokemons[i], False))
         random.shuffle(options)
+
         self.options = options
+        self.question = pokemons[0].description
         self.answer_name = pokemons[0].name
         self.answer_image = pokemons[0].image_uri
 
