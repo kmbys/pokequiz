@@ -3,7 +3,7 @@
 }
 
 .option_label {
-/*    display: block; */
+    display: block;
     padding: 15px;
     font-weight: bold;
     border: solid 2px black;
