@@ -40,20 +40,15 @@ def get_from_zukan(no):
 
 @app.route('/')
 def index():
-    quiz = Quiz([
-        Pokemon(
-            "フシギダネ",
-            "うまれたときから　せなかに　しょくぶつの　タネが　あって　すこしずつ　おおきく　そだつ。　（『ポケモン ソード』より）",
-            "https://zukan.pokemon.co.jp/zukan-api/up/images/index/7b705082db2e24dd4ba25166dac84e0a.png"
-        ),
-        Pokemon("ゼニガメ", "図鑑1", "https://example.com/image1.png"),
-        Pokemon("ヒトカゲ", "図鑑2", "https://example.com/image2.png"),
-        Pokemon("ピカチュウ", "図鑑3", "https://example.com/image3.png")
-    ])
     return render_template(
         'index.j2',
         message="第1問",
-        quiz=quiz
+        quiz=Quiz([
+            get_from_zukan("010"),
+            get_from_zukan("004"),
+            get_from_zukan("007"),
+            get_from_zukan("001")
+        ])
     )
 
 if __name__ == '__main__':
