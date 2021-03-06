@@ -5,10 +5,11 @@ import random
 import json
 
 class Stage:
-    def __init__(self, value):
+    def __init__(self, value):        
         if value is None:
-            self.value = 1
+            self.value = "1"
             return
+
         if int(value) < 1:
             raise ValueError
 
