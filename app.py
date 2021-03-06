@@ -6,9 +6,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    stage = None
+    try:
+        stage = Stage(escape(request.args.get("stage")))
+    except ValueError:
+        return "予期しないリクエストを受けました", 400
     return render_template(
         'index.j2',
-        stage=Stage(escape(request.args.get("stage"))).value,
+        stage=stage.value,
         quiz=Quiz(151, 4)
     )
 
