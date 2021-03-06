@@ -7,13 +7,15 @@ import json
 class Stage:
     def __init__(self, value):        
         if value is None:
-            self.value = "1"
+            self.current = "1"
+            self.next = "2"
             return
 
         if int(value) < 1:
             raise ValueError
 
-        self.value = value
+        self.current = value
+        self.next = str(int(value) + 1)
 
 class Pokemon:
     def __init__(self, name, description, image_uri):
