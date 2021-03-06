@@ -8,7 +8,7 @@ app = Flask(__name__)
 def index():
     return render_template(
         'index.j2',
-        message="第1問",
+        stage=1,
         quiz=Quiz(151, 4)
     )
 
