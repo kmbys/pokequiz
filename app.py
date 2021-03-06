@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
 import random
+import json
 
 app = Flask(__name__)
 
@@ -25,6 +28,15 @@ class Quiz:
         self.options = options
         self.answer_name = pokemons[0].name
         self.answer_image = pokemons[0].image_uri
+
+def get_from_zukan(no):
+    p = json.loads(
+        BeautifulSoup(
+            urlopen("https://zukan.pokemon.co.jp/detail/{}".format(no)).read(),
+            'html.parser'
+        ).select_one("#json-data").contents[0]
+    )["pokemon"]
+    return Pokemon(p["name"], p["text_1"], p["image_s"])
 
 @app.route('/')
 def index():
