@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="/static/index.css">
 </head>
 <body>
-	<p>第 {{ stage.value }} 問</p>
+	<p>第 {{ stage.current }} 問</p>
 	<p>問題：</p>
 	<p>このポケモンは？<br>{{ quiz.question }}</p>
 	{% for option in quiz.options %}
@@ -18,13 +18,18 @@
 		<p>結果：</p>
 		<p>正解！</p>
 		<img src="{{ quiz.answer_image }}">
-		<button>次の問題へ</button>
+		<form action="/" method="get">	
+			<input type="hidden" name="stage" value="{{ stage.next }}">
+			<input type="submit" value="次の問題へ">
+		</form>
 	</div>
 	<div id="result_wrong">
 		<p>結果：</p>
 		<p>残念！正解は<strong> {{ quiz.answer_name }} </strong>でした。</p>
 		<img src="{{ quiz.answer_image }}">
-		<button>最初に戻る</button>
+		<form action="/" method="get">	
+			<input type="submit" value="最初に戻る">
+		</form>
 	</div>
 </body>
 </html>
