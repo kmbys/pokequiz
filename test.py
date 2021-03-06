@@ -1,5 +1,5 @@
 import unittest
-from app import get_from_zukan, get_distinct_random_nums
+from lib import get_from_zukan, get_distinct_random_nums
 
 class Test(unittest.TestCase):
     def test_get_from_zukan(self):
