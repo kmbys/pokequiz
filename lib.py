@@ -50,6 +50,9 @@ class Level(Enum):
             return Level.ULTRA_HARD
         raise ValueError
 
+    def next(self):
+        return Level.from_key(self.key + 1)
+
 class Config:
     def __init__(self, level, stage):
         self.level = level

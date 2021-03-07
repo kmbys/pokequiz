@@ -44,6 +44,14 @@ class Test(unittest.TestCase):
         with self.assertRaises(ValueError):
             Level.from_key(6)
 
+    def test_level_next_normal(self):
+        actual = Level.NORMAL.next()
+        self.assertEqual(actual, Level.HARD)
+
+    def test_level_next_error(self):
+        with self.assertRaises(ValueError):
+            Level.ULTRA_HARD.next()
+
     def test_get_from_zukan(self):
         actual = get_from_zukan("004")
         self.assertEqual("ヒトカゲ", actual.name)
