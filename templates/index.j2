@@ -7,7 +7,12 @@
 <link rel="stylesheet" href="/static/index.css">
 </head>
 <body>
-	<p>（{{ level.label }}）ステージ {{ stage.current }}</p>
+	<p>（{{ config.level.label }}）ステージ {{ config.stage.current }}</p>
+	{% if config.can_levelup() %}
+	<form action="/levels/{{ config.level.next().key }}/stages/1" method="get">	
+		<input type="submit" value="レベルアップ" class="submit">
+	</form>
+	{% endif %}
 	<p>このポケモンは？<br>{{ quiz.question }}</p>
 	{% for option in quiz.options %}
 		<input type="radio" name="option" id="{{ option.name }}" class="{{ option.class_name }}">
@@ -16,14 +21,14 @@
 	<div id="result_correct">
 		<p>せいかい！</p>
 		<img src="{{ quiz.answer_image }}">
-		<form action="/levels/0/stages/{{ stage.next }}" method="get">	
+		<form action="/levels/{{ config.level.key }}/stages/{{ config.stage.next }}" method="get">	
 			<input type="submit" value="つぎへすすむ" class="submit">
 		</form>
 	</div>
 	<div id="result_wrong">
 		<p>ざんねん！せいかいは<strong> {{ quiz.answer_name }} </strong>でした。</p>
 		<img src="{{ quiz.answer_image }}">
-		<form action="/" method="get">	
+		<form action="/levels/{{ config.level.key }}/stages/1" method="get">	
 			<input type="submit" value="さいしょから" class="submit">
 		</form>
 	</div>
