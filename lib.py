@@ -22,11 +22,33 @@ class Stage:
         self.next = value + 1
 
 class Level(Enum):
-    VERY_EASY = 0
-    EASY = 1
-    NORMAL = 2
-    HARD = 3
-    VERY_HARD = 4
+    VERY_EASY = (0, "ベリーイージー", 151)
+    EASY = (1, "イージー", 251)
+    NORMAL = (2, "ノーマル", 386)
+    HARD = (3, "ハード", 493)
+    VERY_HARD = (4, "ベリーハード", 649)
+    ULTRA_HARD = (5, "ウルトラハード", 807)
+
+    def __init__(self, key, label, max_no):
+        self.key = key
+        self.label = label
+        self.max_no = max_no
+
+    @classmethod
+    def from_key(self, key):
+        if key == 0:
+            return Level.VERY_EASY
+        if key == 1:
+            return Level.EASY
+        if key == 2:
+            return Level.NORMAL
+        if key == 3:
+            return Level.HARD
+        if key == 4:
+            return Level.VERY_HARD
+        if key == 5:
+            return Level.ULTRA_HARD
+        raise ValueError
 
 class Pokemon:
     def __init__(self, name, description, image_uri):
