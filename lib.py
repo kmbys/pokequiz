@@ -1,21 +1,32 @@
 # -*- coding: utf-8 -*-
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
+from enum import Enum
 import random
 import json
 
 class Stage:
-    def __init__(self, value):        
+    def __init__(self, value):
         if value is None:
-            self.current = "1"
-            self.next = "2"
+            self.current = 1
+            self.next = 2
             return
 
-        if int(value) < 1:
+        if type(value) is not int:
+            raise ValueError
+
+        if value < 1:
             raise ValueError
 
         self.current = value
-        self.next = str(int(value) + 1)
+        self.next = value + 1
+
+class Level(Enum):
+    VERY_EASY = 0
+    EASY = 1
+    NORMAL = 2
+    HARD = 3
+    VERY_HARD = 4
 
 class Pokemon:
     def __init__(self, name, description, image_uri):

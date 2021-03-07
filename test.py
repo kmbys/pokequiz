@@ -3,22 +3,26 @@ from lib import Stage, get_from_zukan, get_distinct_random_nums
 
 class Test(unittest.TestCase):
     def test_stage_init_normal_int(self):
-        actual = Stage("5")
-        self.assertEqual(actual.current, "5")
-        self.assertEqual(actual.next, "6")
+        actual = Stage(5)
+        self.assertEqual(actual.current, 5)
+        self.assertEqual(actual.next, 6)
 
     def test_stage_init_normal_none(self):
         actual = Stage(None)
-        self.assertEqual(actual.current, "1")
-        self.assertEqual(actual.next, "2")
+        self.assertEqual(actual.current, 1)
+        self.assertEqual(actual.next, 2)
 
     def test_stage_init_error_float(self):
         with self.assertRaises(ValueError):
-            Stage("6.4")
+            Stage(6.4)
 
     def test_stage_init_error_negative(self):
         with self.assertRaises(ValueError):
-            Stage("-1")
+            Stage(-1)
+
+    def test_stage_init_error_zero(self):
+        with self.assertRaises(ValueError):
+            Stage(0)
 
     def test_stage_init_error_markup(self):
         with self.assertRaises(ValueError):
