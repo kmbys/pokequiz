@@ -4,17 +4,17 @@ from lib import Stage, Quiz
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    stage = None
+@app.route('/<stage>')
+def get_quiz(stage):
+    stage_obj = None
     try:
-        stage = Stage(request.args.get("stage"))
+        stage_obj = Stage(stage)
     except ValueError:
         return "予期しないリクエストを受けました", 400
 
     return render_template(
         'index.j2',
-        stage=stage,
+        stage=stage_obj,
         quiz=Quiz(151, 4)
     )
 
