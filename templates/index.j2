@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="/static/index.css">
 </head>
 <body>
-	<p>ステージ {{ stage.current }}</p>
+	<p>（{{ level.label }}）ステージ {{ stage.current }}</p>
 	<p>このポケモンは？<br>{{ quiz.question }}</p>
 	{% for option in quiz.options %}
 		<input type="radio" name="option" id="{{ option.name }}" class="{{ option.class_name }}">
