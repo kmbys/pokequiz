@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, redirect, url_for, render_template, request, escape
-from lib import Stage, Level, Quiz
+from lib import Stage, Level, Config, Quiz
 
 app = Flask(__name__)
 
@@ -20,9 +20,8 @@ def get_quiz(level, stage):
 
     return render_template(
         'index.j2',
-        level=level_obj,
-        stage=stage_obj,
-        quiz=Quiz(151, 4)
+        config=Config(level_obj, stage_obj),
+        quiz=Quiz(level_obj.max_no, 4)
     )
 
 if __name__ == '__main__':

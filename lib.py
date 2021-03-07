@@ -50,6 +50,17 @@ class Level(Enum):
             return Level.ULTRA_HARD
         raise ValueError
 
+class Config:
+    def __init__(self, level, stage):
+        self.level = level
+        self.stage = stage
+
+    def can_levelup(self):
+        if self.stage.current > 10 and self.level != Level.ULTRA_HARD:
+            return True
+        else:
+            return False
+
 class Pokemon:
     def __init__(self, name, description, image_uri):
         self.name = name
