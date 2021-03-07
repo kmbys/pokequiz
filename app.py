@@ -6,10 +6,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return redirect(url_for('get_quiz', stage="1"))
+    return redirect(url_for('get_quiz', level="0", stage="1"))
 
-@app.route('/<stage>')
-def get_quiz(stage):
+@app.route('/levels/<level>/stages/<stage>')
+def get_quiz(level, stage):
     stage_obj = None
     try:
         stage_obj = Stage(stage)
