@@ -21,7 +21,7 @@ def get_quiz(level, stage):
     return render_template(
         'index.j2',
         config=Config(level_obj, stage_obj),
-        quiz=Quiz(level_obj.max_no, 4)
+        quiz=Quiz(level_obj.max_no, 5)
     )
 
 if __name__ == '__main__':

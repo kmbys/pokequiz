@@ -59,7 +59,7 @@ class Config:
         self.stage = stage
 
     def can_levelup(self):
-        if self.stage.current > 10 and self.level != Level.ULTRA_HARD:
+        if self.stage.current > 5 and self.level != Level.ULTRA_HARD:
             return True
         else:
             return False
