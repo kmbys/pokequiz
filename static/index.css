@@ -2,14 +2,6 @@
     display: none; 
 }
 
-.option_label {
-    display: block;
-    padding: 15px;
-    font-weight: bold;
-    border: solid 2px black;
-    cursor: pointer;
-}
-
 input:checked + .option_label {
     background-color: #FFC778;
 }
@@ -39,11 +31,4 @@ input:checked + .option_label {
     padding: 10px 0;
     height: auto;
     opacity: 1;
-}
-
-.submit {
-    padding: 15px;
-    font-weight: bold;
-    border: solid 2px black;
-    cursor: pointer;
 }

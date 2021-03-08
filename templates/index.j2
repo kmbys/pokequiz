@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>pokequiz</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 <link rel="stylesheet" href="/static/index.css">
 </head>
 <body>
@@ -16,20 +17,20 @@
 	<p>このポケモンは？<br>{{ quiz.question }}</p>
 	{% for option in quiz.options %}
 		<input type="radio" name="option" id="{{ option.name }}" class="{{ option.class_name }}">
-		<label class="option_label" for="{{ option.name }}">{{ option.name }}</label>
+		<label class="button option_label" for="{{ option.name }}">{{ option.name }}</label>
 	{% endfor %}
 	<div id="result_correct">
 		<p>せいかい！</p>
 		<img src="{{ quiz.answer_image }}">
 		<form action="/levels/{{ config.level.key }}/stages/{{ config.stage.next }}" method="get">	
-			<input type="submit" value="つぎへすすむ" class="submit">
+			<input type="submit" value="つぎへすすむ" class="button is-primary">
 		</form>
 	</div>
 	<div id="result_wrong">
 		<p>ざんねん！せいかいは<strong> {{ quiz.answer_name }} </strong>でした。</p>
 		<img src="{{ quiz.answer_image }}">
 		<form action="/levels/{{ config.level.key }}/stages/1" method="get">	
-			<input type="submit" value="さいしょから" class="submit">
+			<input type="submit" value="さいしょから" class="button is-link">
 		</form>
 	</div>
 </body>
