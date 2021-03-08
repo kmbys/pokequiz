@@ -11,7 +11,7 @@
 	<p>（{{ config.level.label }}）ステージ {{ config.stage.current }}</p>
 	{% if config.can_levelup() %}
 	<form action="/levels/{{ config.level.next().key }}/stages/1" method="get">	
-		<input type="submit" value="レベルアップ" class="submit">
+		<input type="submit" value="レベルアップ" class="button is-link">
 	</form>
 	{% endif %}
 	<p>このポケモンは？<br>{{ quiz.question }}</p>
