@@ -5,7 +5,7 @@ A web application for quiz game.
 
 ## Demo
 
-http://pokequiz-nsbt.herokuapp.com
+https://pokequiz-307002.an.r.appspot.com
 
 ## Requirements
 
