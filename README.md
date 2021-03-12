@@ -20,13 +20,26 @@ Clone this repository and setup the virtual environment.
 git clone https://github.com/nsbt/pokequiz
 cd pokequiz
 pipenv install
-pipenv run python app.py
+pipenv run python main.py
 ```
 
-Then access to http://localhost:5000 in your browser.
+Then access to http://localhost:8080 in your browser.
 
 ## Test
 
 ```
 pipenv run python test.py
 ```
+
+## Deployment
+
+### Google App Engine
+
+```
+pipenv run pip freeze > requirements.txt
+gcloud deploy
+```
+
+### Heroku
+
+TBD
