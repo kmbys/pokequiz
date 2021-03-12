@@ -37,9 +37,9 @@ pipenv run python test.py
 
 ```
 pipenv run pip freeze > requirements.txt
-gcloud deploy
+gcloud app deploy
 ```
 
 ### Heroku
 
-TBD
+Clone this repository to Heroku.
