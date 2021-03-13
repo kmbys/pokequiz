@@ -42,4 +42,4 @@ gcloud app deploy
 
 ### Heroku
 
-Clone this repository to Heroku.
+Set configuration for automatic deploys from this branch or create pipeline on it.
